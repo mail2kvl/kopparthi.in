@@ -1,13 +1,30 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sponsors • Royal Village</title>
 <link rel="stylesheet" href="assets/styles.css">
+<style>
+  :root{--rv-green:#0b5c2b;--rv-bg:#f7fbf8;--rv-line:#e6e6e6}
+  .hero-compact{background:radial-gradient(900px 360px at 70% -20%, rgba(11,92,43,.12), transparent), var(--rv-bg);
+    border-bottom:1px solid var(--rv-line); padding:28px 0 16px}
+  .hero-compact .title{margin:0;font-size:36px;color:var(--rv-green)}
+  .kudos{margin:12px 0 0; color:#2b513c}
+  .grid-sponsors{display:grid; gap:16px; margin-top:18px; grid-template-columns:1fr}
+  @media(min-width:720px){.grid-sponsors{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(min-width:1024px){.grid-sponsors{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .tile{background:#fff;border:1px solid var(--rv-line);border-radius:14px;padding:14px;display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;transition:transform .15s, box-shadow .2s}
+  .tile:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
+  .tile img{width:72px;height:72px;border-radius:12px;border:1px solid var(--rv-line);background:#fff;object-fit:cover}
+  .tile h3{margin:0 0 6px;color:#173b2a}
+  .tile p{margin:0;color:#53655b}
+  .ribbon{margin-top:22px;padding:14px;border-radius:12px;background:#e7f2eb;border:1px solid #d3e6da;color:#0b5c2b;font-weight:600;text-align:center}
+</style>
 </head><body>
 
 <nav class="nav">
   <div class="brand">
-    <img src="assets/logo.png" alt="Royal Village logo">
+    <img src="assets/logo.png" alt="Royal Village logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;background:#fff;padding:4px">
     <div class="name">
       <div class="soc">Royal Village</div>
       <div class="evt">వినాయక చవితి - 2025</div>
@@ -16,22 +33,74 @@
   <div class="navlinks">
     <a href="index.html">Home</a>
     <a href="events.html">Events</a>
+    <a href="activities.html">Daily Activities</a>
     <a href="gallery.html">Gallery</a>
-    <a href="sponsors.html">Sponsors</a>
+    <a href="sponsors.html" aria-current="page">Sponsors</a>
     <a href="donations.html">Donations</a>
   </div>
 </nav>
 
+<header class="hero-compact">
+  <div class="container">
+    <h1 class="title">Sponsors</h1>
+    <p class="kudos">From idols to prasadam, sarees to supper — your kindness lights up Royal Village. Thank you for standing behind every moment of <strong>వినాయక చవితి - 2025</strong>.</p>
+  </div>
+</header>
 
 <main class="container">
-  <h1 class="h-title">Sponsors</h1>
-  <p class="h-sub">With gratitude to our generous supporters who made these celebrations possible.</p>
-  <div class="grid cards-3">
-    <div class="card"><h3>Ganesh Idol Sponsor</h3><p>Sri Chenna Reddy Garu (Villa#34)</p></div>
-    <div class="card"><h3>Laddu Sponsor</h3><p>Sri Satish Garu (Villa#48)</p></div>
-    <div class="card"><h3>Sponsor of Idol making</h3><p>Sri Shiva Garu (Villa#9)</p></div>
-    <div class="card"><h3>Pattu vastralu sponsor</h3><p>Sri Krishna Garu (Villa#73)</p></div>
-  </div>
+  <section class="grid-sponsors">
+    <article class="tile">
+      <img src="images/Ganesha idol.png" alt="Ganesh Idol">
+      <div><h3>Ganesh Idol</h3><p>Sri Chenna Reddy Garu (Villa #34)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Laddu.png" alt="Laddu">
+      <div><h3>Laddu</h3><p>Sri Satish Garu (Villa #48)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Idol%20making.png" alt="Idol Making Activity">
+      <div><h3>Idol Making Activity</h3><p>Sri Shiva Garu (Villa #9)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Vastralu.png" alt="Pattu Vastralu">
+      <div><h3>Pattu Vastralu</h3><p>Sri Mohan Krishna Garu (Villa #73)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Sweets.png" alt="Daily Sweet Prasadam">
+      <div><h3>Day-1 Dinner</h3><p>Sri Prasad Garu (Villa #35)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Tiffins.png" alt="Day-1 Dinner">
+      <div><h3>Day-1 Dinner</h3><p>Sri Naresh Garu (Villa #47)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Tiffins.png" alt="Day-2 Dinner">
+      <div><h3>Day-2 Dinner</h3><p>Sri Reddy Garu (Villa #13)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Tiffins.png" alt="Day-3 Dinner">
+      <div><h3>Day-3 Dinner</h3><p>Sri Dr Srikanth Garu (Villa #44)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/Tiffins.png" alt="Day-4 Dinner">
+      <div><h3>Day-4 Dinner</h3><p>Sri Ravikanth Reddy Garu (Villa #40)</p></div>
+    </article>
+
+    <article class="tile">
+      <img src="images/bhojanam.png" alt="Last Day Lunch">
+      <div><h3>Last Day Lunch</h3><p>Open for sponsorship</p></div>
+    </article>
+  </section>
+
+  <div class="ribbon">🙏 Heartfelt thanks to every sponsor for your generosity and community spirit. You make the celebration brighter for everyone.</div>
 </main>
 
 <footer class="container">© 2025 Royal Village • All rights reserved.</footer>
