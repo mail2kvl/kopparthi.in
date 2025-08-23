@@ -1,13 +1,66 @@
 <!doctype html>
 <html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Daily Activities • Royal Village</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Events • Royal Village</title>
 <link rel="stylesheet" href="assets/styles.css">
-</head><body>
 
+<!-- Page-specific polish -->
+<style>
+  :root{
+    --rv-green:#0b5c2b; --rv-soft:#e7f2eb; --rv-line:#e6e6e6;
+  }
+  .hero-compact{
+    background: radial-gradient(900px 360px at 70% -20%, rgba(11,92,43,.12), transparent), #f7fbf8;
+    border-bottom:1px solid var(--rv-line); padding:28px 0 20px;
+  }
+  .hero-compact .title{margin:0;font-size:36px;line-height:1.1;color:var(--rv-green)}
+  .hero-compact .subtle{color:#5c6b62;margin-top:6px}
+
+  /* Two-column tiles */
+  .events-grid{
+    display:grid; gap:16px; margin-top:18px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:740px){
+    .events-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  }
+
+  .event{
+    background:#fff; border:1px solid var(--rv-line); border-radius:14px; padding:16px;
+    display:grid; grid-template-columns:64px 1fr; gap:14px; align-items:flex-start;
+    transition:transform .15s ease, box-shadow .2s ease;
+  }
+  .event:hover{ transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.08); }
+  .event .icon{
+    width:64px; height:64px; border-radius:12px; display:grid; place-items:center;
+    background:var(--rv-soft); color:var(--rv-green); font-size:28px; font-weight:700;
+  }
+  .event h3{margin:0 0 6px; color:#1f3328}
+  .event .meta{font-size:13px; color:#5c6b62; margin-bottom:6px}
+  .event .tags{margin-top:8px}
+  .tag{display:inline-block; padding:4px 8px; border:1px solid #cfe1d6; background:#edf6f0; color:#145a32;
+       border-radius:999px; font-size:12px; margin:4px 6px 0 0}
+  .event figure{
+    grid-column:1 / -1; margin:8px 0 0; display:flex; gap:12px; flex-wrap:wrap;
+  }
+  .event img.thumb{
+    width:100%; max-width:260px; height:160px; object-fit:cover;
+    border-radius:10px; border:1px solid var(--rv-line); background:#fff;
+  }
+
+  .info-card{
+    margin-top:18px; padding:14px 16px; border-radius:12px; border:1px solid var(--rv-line);
+    background:#fff; color:#214b34;
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav kept consistent with your site -->
 <nav class="nav">
   <div class="brand">
-    <img src="assets/logo.png" alt="Royal Village logo">
+    <img src="assets/logo.png" alt="Royal Village logo" style="width:40px;height:40px;object-fit:contain;border-radius:8px;background:#fff;padding:4px">
     <div class="name">
       <div class="soc">Royal Village</div>
       <div class="evt">వినాయక చవితి - 2025</div>
@@ -23,15 +76,127 @@
   </div>
 </nav>
 
+<header class="hero-compact">
+  <div class="container">
+    <h1 class="title">వినాయక చవితి - 2025 • Events</h1>
+    <p class="subtle">A festive week of devotion, creativity, and community spirit.</p>
+  </div>
+</header>
 
 <main class="container">
-  <h1 class="h-title">Daily Activities</h1>
-  <ul>
-    <li>🌸 Pooja starts daily at <strong>6PM</strong></li>
-    <li>🎶 Cultural activities after pooja</li>
-    <li>🎭 Tambola every night — tickets at ₹10</li>
-    <li>🙏 Residents interested in performing pooja, please join in person</li>
-  </ul>
+
+  <div class="events-grid">
+
+    <!-- 24-Aug 10AM: Idol arrival -->
+    <article class="event">
+      <div class="icon">🛕</div>
+      <div>
+        <h3>24-Aug-2025, Sunday 10:00 AM • గణేశ ఆగమనము</h3>
+        <div class="meta">Gather near Villa #23 by 10AM</div>
+        <p>Bringing Lord Ganesha to Royal Village <strong>(ప్రత్యేక శోభాయాత్ర)</strong>. Heartfelt thanks to <strong>Sri Chenna Reddy Garu</strong> for sponsoring the idol. Join the procession with devotion and joy! 🐘</p>
+        <div class="tags">
+          <span class="tag">Procession 🥁</span>
+          <span class="tag">Devotion 🪔</span>
+        </div>
+        <figure>
+          <img class="thumb" src="images/Ganesh Agamanam.jpg" alt="Ganesha idol arrival">
+        </figure>
+      </div>
+    </article>
+
+    <!-- 24-Aug 2–4PM: Idol making workshop -->
+    <article class="event">
+      <div class="icon">🎨</div>
+      <div>
+        <h3>24-Aug-2025, Sunday 2:00–4:00 PM • Eco-friendly Idol Making</h3>
+        <div class="meta">Venue: Main Club House</div>
+        <p>A creative, eco-friendly <strong>Ganesh Idol-making workshop</strong> for children and women. Materials sponsored by <strong>Mr. Shiva (Villa-9)</strong>. Exciting gifts for kids! 🌿🎁</p>
+        <div class="tags">
+          <span class="tag">Kids 👧🧒</span>
+          <span class="tag">Eco-friendly 🌿</span>
+          <span class="tag">Workshop ✍️</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 27-Aug Festive Day -->
+    <article class="event">
+      <div class="icon">🪔</div>
+      <div>
+        <h3>27-Aug-2025, Wednesday • Festive Day</h3>
+        <div class="meta">Pooja starts 5:00 PM</div>
+        <p>Pooja followed by cultural programs and dinner. Dinner sponsored by <strong>Mr. Naresh (Villa-47)</strong>. 🎶🍛</p>
+        <div class="tags">
+          <span class="tag">Pooja 🪔</span>
+          <span class="tag">Cultural 🎶</span>
+          <span class="tag">Dinner 🍛</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 28-Aug -->
+    <article class="event">
+      <div class="icon">🎭</div>
+      <div>
+        <h3>28-Aug-2025, Thursday</h3>
+        <p>Evening pooja followed by cultural activities and fun games. 🎼🎲</p>
+        <div class="tags">
+          <span class="tag">Pooja 🪔</span>
+          <span class="tag">Games 🎲</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 29-Aug -->
+    <article class="event">
+      <div class="icon">🎲</div>
+      <div>
+        <h3>29-Aug-2025, Friday</h3>
+        <p>Pooja at 6PM with cultural programs and Tambola. 🎶🎲</p>
+        <div class="tags">
+          <span class="tag">Pooja 🪔</span>
+          <span class="tag">Cultural 🎶</span>
+          <span class="tag">Tambola 🎟️</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 30-Aug -->
+    <article class="event">
+      <div class="icon">🏆</div>
+      <div>
+        <h3>30-Aug-2025, Saturday</h3>
+        <p>Evening pooja, youth cultural performances, and lively games. 🎤🏸</p>
+        <div class="tags">
+          <span class="tag">Youth 🎤</span>
+          <span class="tag">Games 🏸</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- 31-Aug Grand Finale + laddu image -->
+    <article class="event">
+      <div class="icon">🥁</div>
+      <div>
+        <h3>31-Aug-2025, Sunday • Grand Finale</h3>
+        <p>Big line-up of programs! Visarjan will be held within our society. Lunch and dinner will be arranged on-site. 🍽️🙏</p>
+        <div class="tags">
+          <span class="tag">Visarjan 🌊</span>
+          <span class="tag">Meals 🍽️</span>
+          <span class="tag">Prasadam 🍬</span>
+        </div>
+        <figure>
+          <img class="thumb" src="images/laddu.jpg" alt="Laddu prasadam">
+        </figure>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- Daily notes -->
+  <div class="info-card">
+    <strong>Daily highlights:</strong> Pooja starts at <strong>6:00 PM</strong> every day • Cultural activities follow the pooja • We close with <strong>Tambola</strong> (₹10 per ticket). Get motivated by our young participants and join in!
+  </div>
 </main>
 
 <footer class="container">© 2025 Royal Village • All rights reserved.</footer>
