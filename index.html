@@ -3,6 +3,25 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Royal Village • వినాయక చవితి - 2025</title>
 <link rel="stylesheet" href="assets/styles.css">
+<style>
+  .marquee {
+    background: #f9f9f9;
+    color: #c00;
+    font-weight: bold;
+    padding: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee div {
+    display: inline-block;
+    padding-right: 2rem;
+    animation: scroll 12s linear infinite;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+</style>
 </head><body>
 
 <nav class="nav">
@@ -22,13 +41,20 @@
   </div>
 </nav>
 
-
 <header class="hero container">
   <span class="badge">🌿 Royal Village Cultural Festival</span>
   <h1 class="h-title">వినాయక చవితి - 2025</h1>
   <p class="h-sub">Join us in celebrating Ganesh Chaturthi with devotion, joy, and togetherness. Explore daily activities, cultural events, heartfelt contributions, and beautiful memories captured in our gallery.</p>
 </header>
-<main class="container">
+
+<!-- Scrolling updates -->
+<div class="marquee">
+  <div>🪔 August 24th: 10AM - Ganesha Agamanam • 2PM - Ganesh Idol Making Workshop </div>
+</div>
+
+
+  
+  <main class="container">
   <div class="grid cards-3">
     <a class="card" href="events.html"><h3>✨ Events</h3><p>Discover all planned programs and celebrations.</p></a>
     <a class="card" href="sponsors.html"><h3>🤝 Sponsors</h3><p>Gratitude to our generous sponsors.</p></a>
