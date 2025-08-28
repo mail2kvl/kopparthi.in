@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Event Expenses</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --card: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #22c55e;
+    --border: #1f2937;
+  }
+  html, body {
+    background: linear-gradient(180deg, #0b1220, #0f172a);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 1.5rem;
+  }
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem;
+  }
+  .sub {
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0 1.25rem;
+  }
+  .card {
+    background: rgba(17,24,39,0.7);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+  .label {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .value {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .value.green { color: #34d399; }
+  .value.yellow { color: #fbbf24; }
+  .value.red { color: #f87171; }
+
+  .toolbar {
+    display: flex;
+    gap: 0.75rem;
+    margin: 0.5rem 0 1rem;
+    flex-wrap: wrap;
+  }
+  .search {
+    flex: 1 1 260px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.6rem 0.8rem;
+    color: var(--text);
+  }
+  .hint {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(17,24,39,0.55);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  thead th {
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 0.8rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  tfoot td {
+    padding: 0.9rem 0.75rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.04);
+  }
+  .right { text-align: right; }
+  .nowrap { white-space: nowrap; }
+  @media (max-width: 720px) {
+    .summary { grid-template-columns: 1fr; }
+    thead th:nth-child(5), tbody td:nth-child(5),
+    thead th:nth-child(6), tbody td:nth-child(6) { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Event Expenses</h1>
+  <div class="sub">Detailed log of expenses, advances, and balances.</div>
+
+  <div class="summary">
+    <div class="card">
+      <div class="label">Grand Total</div>
+      <div class="value yellow">₹ 3,47,081</div>
+    </div>
+    <div class="card">
+      <div class="label">Total Collections</div>
+      <div class="value green">₹ 93,081</div>
+    </div>
+    <div class="card">
+      <div class="label">Total Balance</div>
+      <div class="value red">₹ 2,37,098</div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input id="search" class="search" type="text" placeholder="Search item, notes, or mode of pay..." />
+    <div class="hint">Tip: Click a column header to sort.</div>
+  </div>
+
+  <table id="expenses">
+    <thead>
+      <tr>
+        <th data-type="text">Item</th>
+        <th class="right nowrap" data-type="num">Total (₹)</th>
+        <th class="right nowrap" data-type="num">Advance (₹)</th>
+        <th class="right nowrap" data-type="num">Balance (₹)</th>
+        <th class="nowrap" data-type="text">Date of payment</th>
+        <th data-type="text">Mode of pay</th>
+        <th data-type="text">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <td>Dias decoration</td>
+      <td data-value="55000">₹ 55,000</td>
+      <td data-value="25000">₹ 25,000</td>
+      <td data-value="30000">₹ 30,000</td>
+      <td>20-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid 2 installments</td>
+    </tr>
+    
+    <tr>
+      <td>Last day food</td>
+      <td data-value="90000">₹ 90,000</td>
+      <td data-value="0">₹ 0</td>
+      <td data-value="90000">₹ 90,000</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>Band</td>
+      <td data-value="20000">₹ 20,000</td>
+      <td data-value="10000">₹ 10,000</td>
+      <td data-value="10000">₹ 10,000</td>
+      <td>20-Aug-25</td>
+      <td>Gpay</td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>Poojari</td>
+      <td data-value="18000">₹ 18,000</td>
+      <td data-value="0">₹ 0</td>
+      <td data-value="18000">₹ 18,000</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>Lights</td>
+      <td data-value="20000">₹ 20,000</td>
+      <td data-value="0">₹ 0</td>
+      <td data-value="20000">₹ 20,000</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>Stage</td>
+      <td data-value="15000">₹ 15,000</td>
+      <td data-value="0">₹ 0</td>
+      <td data-value="15000">₹ 15,000</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td>Disposable plates</td>
+      <td data-value="15792">₹ 15,792</td>
+      <td data-value="15792">₹ 15,792</td>
+      <td data-value="0">₹ 0</td>
+      <td>22-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid to Vinay</td>
+    </tr>
+    
+    <tr>
+      <td>Red Carpets</td>
+      <td data-value="6400">₹ 6,400</td>
+      <td data-value="6400">₹ 6,400</td>
+      <td data-value="0">₹ 0</td>
+      <td>23-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid to Ram</td>
+    </tr>
+    
+    <tr>
+      <td>Gifts for children</td>
+      <td data-value="6876">₹ 6,876</td>
+      <td data-value="6876">₹ 6,876</td>
+      <td data-value="0">₹ 0</td>
+      <td>23-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid to Lavanya</td>
+    </tr>
+    
+    <tr>
+      <td>Table+Stand in Amazon</td>
+      <td data-value="2188">₹ 2,188</td>
+      <td data-value="2188">₹ 2,188</td>
+      <td data-value="0">₹ 0</td>
+      <td>24-Aug-25</td>
+      <td>Self</td>
+      <td>Paid to Rama Rao</td>
+    </tr>
+    
+    <tr>
+      <td>Sugarcane Juice</td>
+      <td data-value="900">₹ 900</td>
+      <td data-value="900">₹ 900</td>
+      <td data-value="0">₹ 0</td>
+      <td>24-Aug-25</td>
+      <td>Self</td>
+      <td>Paid to Rama Rao</td>
+    </tr>
+    
+    <tr>
+      <td>Misc (1)</td>
+      <td data-value="3000">₹ 3,000</td>
+      <td data-value="3000">₹ 3,000</td>
+      <td data-value="0">₹ 0</td>
+      <td>26-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid to Ram Babu</td>
+    </tr>
+    
+    <tr>
+      <td>Baloons+Thambola</td>
+      <td data-value="1995">₹ 1,995</td>
+      <td data-value="1995">₹ 1,995</td>
+      <td data-value="0">₹ 0</td>
+      <td>26-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid to Ravali</td>
+    </tr>
+    
+    <tr>
+      <td>Pooja items</td>
+      <td data-value="5930">₹ 5,930</td>
+      <td data-value="5930">₹ 5,930</td>
+      <td data-value="0">₹ 0</td>
+      <td>26-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid to Ram</td>
+    </tr>
+    
+    <tr>
+      <td>KV Tiffins</td>
+      <td data-value="66000">₹ 65,000</td>
+      <td data-value="15000">₹ 15,000</td>
+      <td data-value="50000">₹ 50,000</td>
+      <td>24-Aug-25</td>
+      <td>Gpay</td>
+      <td>Paid to KV Tiffins</td>
+    </tr>
+    
+    <tr>
+      <td>Misc (2)</td>
+      <td data-value="20000">₹ 20,000</td>
+      <td data-value="0">₹ 0</td>
+      <td data-value="20000">₹ 20,000</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="right">Totals:</td>
+        <td class="right">₹ 3,46,081</td>
+        <td class="right">₹ 93,081</td>
+        <td class="right">₹ 2,53,000</td>
+        <td colspan="3"></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<script>
+(function() {
+  const table = document.getElementById('expenses');
+  const headers = table.querySelectorAll('thead th');
+  let sortState = {};
+
+  function getCellValue(tr, idx, type) {
+    const td = tr.children[idx];
+    if (!td) return '';
+    if (type === 'num') {
+      const v = td.getAttribute('data-value');
+      return v ? parseFloat(v) : 0;
+    }
+    return (td.textContent || '').toLowerCase();
+  }
+
+  headers.forEach((th, idx) => {
+    th.addEventListener('click', () => {
+      const type = th.getAttribute('data-type') || 'text';
+      const tbody = table.querySelector('tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const dir = sortState[idx] === 'asc' ? 'desc' : 'asc';
+      sortState = {}; sortState[idx] = dir;
+
+      rows.sort((a, b) => {
+        const av = getCellValue(a, idx, type);
+        const bv = getCellValue(b, idx, type);
+        if (av < bv) return dir === 'asc' ? -1 : 1;
+        if (av > bv) return dir === 'asc' ? 1 : -1;
+        return 0;
+      });
+
+      rows.forEach(r => tbody.appendChild(r));
+      headers.forEach(h => h.classList.remove('sorted-asc', 'sorted-desc'));
+      th.classList.add(dir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+    });
+  });
+
+  // Simple search
+  const search = document.getElementById('search');
+  search.addEventListener('input', () => {
+    const q = search.value.trim().toLowerCase();
+    const rows = table.querySelectorAll('tbody tr');
+    rows.forEach(tr => {
+      const text = tr.textContent.toLowerCase();
+      tr.style.display = text.includes(q) ? '' : 'none';
+    });
+  });
+})();
+</script>
+</body>
+</html>
